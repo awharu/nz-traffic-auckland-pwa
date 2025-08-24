@@ -2,5 +2,27 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;font:16px system-ui,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;color:var(--fg);background:linear-gradient(180deg,#0b1020,#0b1020 60%,#0a0e1a)}
+.topbar{position:sticky;top:0;z-index:20;display:flex;gap:.8rem;align-items:center;justify-content:space-between;padding:.8rem 1rem;border-bottom:1px solid #111;background:rgba(10,14,26,.8);backdrop-filter:saturate(140%) blur(6px)}
+.topbar h1{margin:0;font-weight:700;letter-spacing:.2px}
+.topbar .actions{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.topbar input{padding:.5rem .7rem;border-radius:.6rem;border:1px solid #1f2937;background:#0b1325;color:var(--fg);min-width:16rem;outline:none}
+.topbar input:focus{border-color:var(--ring);box-shadow:0 0 0 2px color-mix(in srgb, var(--ring) 30%, transparent)}
+.topbar select{padding:.48rem .7rem;border-radius:.6rem;border:1px solid #1f2937;background:#0b1325;color:var(--fg)}
+.topbar button{padding:.55rem .8rem;border-radius:.6rem;border:1px solid #243244;background:#0c172b;color:var(--fg);cursor:pointer}
+.topbar button:hover{border-color:#2b3a4f}
+.toggle.active{background:#1b263a;border-color:#334056;box-shadow:inset 0 0 0 1px #3b82f6}
+.hidden{display:none}
+.status{padding:.6rem 1rem;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.9rem;padding:1rem}
-.card{background:linear-gradient(180deg,#0e1627,#0b1322);border:1px solid #1d2740;border-radius:1rem;overflow:hidden}
+.card{background:linear-gradient(180deg,#0e1627,#0b1322);border:1px solid #1d2740;border-radius:1rem;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.img-wrap{position:relative;background:#020617;aspect-ratio:16/9}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mini{font-size:.9rem;padding:.35rem .55rem;border-radius:.5rem;border:1px solid #27324a;background:#0c172b;color:var(--fg);cursor:pointer}
+.refresh{position:absolute;right:.5rem;top:.5rem;opacity:.85}
+.meta{padding:.7rem .8rem}
+.name{font-weight:600}
+.sub{font-size:.85rem;color:var(--muted);line-height:1.2;margin-top:.15rem}
+.meta-actions{display:flex;gap:.6rem;align-items:center;justify-content:flex-end;margin-top:.5rem}
+.fav{opacity:.75}
+.fav.active{color:#fbbf24}
+@media (display-mode: standalone){body{padding-bottom:1rem}}
