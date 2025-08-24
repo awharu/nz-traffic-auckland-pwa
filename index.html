@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Auckland Traffic Cams</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="description" content="Fast PWA for Auckland NZTA traffic cameras" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preconnect" href="https://trafficnz.info" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>AKL Traffic Cams</h1>
+    <div class="actions">
+      <input id="q" placeholder="Search camera or motorway…" autocomplete="off" />
+      <select id="motorwayFilter" title="Filter by motorway">
+        <option value="">All Motorways</option>
+      </select>
+      <button id="showFavs" class="toggle" title="Show favourites">★ Favourites</button>
+      <button id="refreshAll" title="Refresh all images">↻ Refresh</button>
+      <button id="installBtn" class="hidden">Install</button>
+    </div>
+  </header>
+  <main>
+    <section id="status" class="status"></section>
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+  <template id="card-tpl">
+    <article class="card">
+      <div class="img-wrap">
+        <img loading="lazy" alt="Traffic camera" />
+        <button class="mini refresh" title="Refresh this image">↻</button>
+      </div>
+      <div class="meta">
+        <div class="name"></div>
+        <div class="sub"></div>
+        <div class="meta-actions">
+          <a class="open-map" target="_blank" rel="noopener">Map</a>
+          <button class="mini fav" title="Toggle favourite">★</button>
+        </div>
+      </div>
+    </article>
+  </template>
+  <script type="module" src="/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+    }
+  </script>
+</body>
+</html>
