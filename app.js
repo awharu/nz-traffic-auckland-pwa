@@ -1,3 +1,4 @@
+// Use a CORS-safe proxy so it works on GitHub Pages
 const ENDPOINT = 'https://cors.isomorphic-git.org/https://trafficnz.info/service/traffic/rest/4/cameras/all';
 
 const AUCKLAND_BOUNDS = { minLat: -37.55, maxLat: -36.2, minLon: 174.0, maxLon: 175.8 };
@@ -56,8 +57,8 @@ async function fetchCameras(){
     syncFavToggleUI();
     render();
     setStatus(`${allCams.length} cameras · Auckland`);
-  } catch(e2){
-    console.error(e2);
+  } catch(e){
+    console.error(e);
     setStatus('Could not load cameras. Try again later.');
   }
 }
